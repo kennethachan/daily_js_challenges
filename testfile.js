@@ -1,4 +1,3 @@
-function sayHello() {
-  console.log("hello")
+function addOne(num) {
+  return num + 1
 }
-sayHello()
