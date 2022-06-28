@@ -78,8 +78,9 @@ sumNumbers([]) //=> 0
 // Your solution for 03-sumNumbers here:
 function sumNumbers(nums) {
   for (i = 0; i < nums.length; i++) {
-    return (sum = sum)
+    return (sum = sum[i] + sum)
   }
+  return 0
 }
 /*-----------------------------------------------------------------
 Challenge: 04-addList
