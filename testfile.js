@@ -1,4 +1,4 @@
-function reverseUpcaseString(string) {
-  return string.split("").reverse().join("").toUpperCase()
+function removeEnds(string) {
+  return string.slice(1, -1)
 }
-console.log(reverseUpcaseString("hello"))
+console.log(removeEnds("hello"))
