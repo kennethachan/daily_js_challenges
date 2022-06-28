@@ -100,7 +100,12 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
-function addList() {}
+function addList() {
+  for (let i = 0; i < anyNumbers.length; i++) {
+    sum = anyNumbers[i] + anyNumbers
+  }
+  return sum
+}
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
