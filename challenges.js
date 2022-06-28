@@ -76,7 +76,11 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-function sumNumbers(nums) {}
+function sumNumbers(nums) {
+  for (i = 0; i < nums.length; i++) {
+    return (sum = sum)
+  }
+}
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
