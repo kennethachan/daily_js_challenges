@@ -12,7 +12,9 @@ Examples:
 sayHello() //=> Hello!
 -----------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
-function sayHello() {}
+function sayHello() {
+  return "Hello!"
+}
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -720,5 +722,5 @@ module.exports = {
   countTheBits,
   gridTrip,
   addChecker,
-  totalTaskTime
+  totalTaskTime,
 }
