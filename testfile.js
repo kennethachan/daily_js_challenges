@@ -1,4 +1,14 @@
-function removeEnds(string) {
-  return string.slice(1, -1)
+function charCount(string) {
+  let letterCount = 1
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === string[i + 1]) {
+      letterCount++
+    } else {
+      console.log(string[i], letterCount)
+      letterCount = 1
+    }
+  }
 }
-console.log(removeEnds("hello"))
+charCount("hello")
+charCount("Today is fantastic!")
