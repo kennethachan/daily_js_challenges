@@ -1,7 +1,4 @@
-function computeRemainder(n1, n2) {
-  if (n2 === 0) {
-    return Infinity
-  }
+function reverseUpcaseString(string) {
+  return string.split("").reverse().join("").toUpperCase()
 }
-computeRemainder(1, 0)
-console.log(computeRemainder)
+console.log(reverseUpcaseString("hello"))
