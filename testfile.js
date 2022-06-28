@@ -1,5 +1,7 @@
-function addOne(num) {
-  console.log(num + 1)
-  return num + 1
+function computeRemainder(n1, n2) {
+  if (n2 === 0) {
+    return Infinity
+  }
 }
-addOne(1)
+computeRemainder(1, 0)
+console.log(computeRemainder)
