@@ -221,18 +221,17 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 function charCount(string) {
-  let letterCount = 0
+  let letterCount = 1
 
   for (let i = 0; i < string.length; i++) {
     if (string[i] === string[i + 1]) {
-      count++
+      letterCount++
     } else {
-      console.log(string[i], count)
-      count = 1
+      console.log(string[i], letterCount)
+      letterCount = 1
     }
   }
 }
-
 charCount("hello")
 charCount("Today is fantastic!")
 /*-----------------------------------------------------------------
@@ -256,7 +255,17 @@ formatWithPadding(42, '*', 10); //=> "********42"
 formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
-function formatWithPadding(n, char, length) {}
+function formatWithPadding(int, char, length) {
+  let string = ""
+  for (let i = 0; i < length; i++) {
+    string = string + char
+    console.log(string)
+  }
+  const paddedString = string + int
+  console.log(paddedString)
+  return paddedString.slice(-length)
+}
+console.log(formatWithPadding(123, "0", 5))
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
