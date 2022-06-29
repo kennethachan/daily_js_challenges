@@ -1,11 +1,8 @@
-function mumble(string) {
-  let characters = string.split(""),
-    newString = []
-
-  for (let i = 0; i < characters.length; i++) {
-    newString.push(characters[i] + Array(i + 1).join(characters[i]))
+function addList() {
+  let sum = 0
+  for (let i = 0; i < arguments.length; i++) {
+    sum = sum + arguments[i]
   }
-
-  return newString.join("-")
+  return sum
 }
-console.log(mumble("abc"))
+console.log(addList(5, -12))

@@ -15,6 +15,7 @@ sayHello() //=> Hello!
 function sayHello() {
   return "Hello!"
 }
+// console.log(sayHello())
 /*-----------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -33,6 +34,8 @@ addOne(-5) //=> -4
 function addOne(num) {
   return num + 1
 }
+// console.log(addOne(1))
+
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
@@ -52,12 +55,13 @@ addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
 function addTwoNumbers(num1, num2) {
-  if (sum1 === "Number" && sum2 === "Number") {
-    return sum1 + sum2
+  if (typeof num1 == "number" && typeof num2 == "number") {
+    return num1 + num2
   } else {
     return NaN
   }
 }
+// console.log(addTwoNumbers("Hello", 5))
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -77,11 +81,13 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 function sumNumbers(nums) {
-  for (i = 0; i < nums.length; i++) {
-    return (sum = sum[i] + sum)
+  let sum = 0
+  for (let i = 0; i < nums.length; i++) {
+    sum = nums[i] + nums
   }
-  return 0
+  return sum
 }
+// console.log(sumNumbers(10))
 /*-----------------------------------------------------------------
 Challenge: 04-addList
 
@@ -101,11 +107,14 @@ add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 function addList() {
-  for (let i = 0; i < anyNumbers.length; i++) {
-    sum = anyNumbers[i] + anyNumbers
+  let sum = 0
+  for (let i = 0; i < arguments.length; i++) {
+    sum = sum + arguments[i]
   }
   return sum
 }
+// console.log(addList(5, -12))
+
 /*-----------------------------------------------------------------
 Challenge: 05-computeRemainder
 
@@ -129,10 +138,10 @@ function computeRemainder(n1, n2) {
   if (n2 === 0) {
     return Infinity
   } else {
-    return n1 / n2
+    return n1 % n2
   }
 }
-
+// console.log(computeRemainder(4, 0))
 /*-----------------------------------------------------------------
 Challenge: 06-range
 
@@ -162,6 +171,7 @@ function range(n1, n2) {
   }
   return array
 }
+// console.log(range(5, 2))
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -179,7 +189,7 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 function reverseUpcaseString(string) {
   return string.split("").reverse().join("").toUpperCase()
 }
-console.log(reverseUpcaseString("hello"))
+// console.log(reverseUpcaseString("hello"))
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -200,7 +210,7 @@ removeEnds('a'); //=> "" (empty string)
 function removeEnds(string) {
   return string.slice(1, -1)
 }
-console.log(removeEnds("hello"))
+// console.log(removeEnds("hello"))
 
 /*-----------------------------------------------------------------
 Challenge: 09-charCount
@@ -227,7 +237,7 @@ function charCount(string) {
     if (string[i] === string[i + 1]) {
       letterCount++
     } else {
-      console.log(string[i], letterCount)
+      // console.log(string[i], letterCount)
       letterCount = 1
     }
   }
@@ -259,13 +269,13 @@ function formatWithPadding(int, char, length) {
   let string = ""
   for (let i = 0; i < length; i++) {
     string = string + char
-    console.log(string)
+    // console.log(string)
   }
   const paddedString = string + int
-  console.log(paddedString)
+  // console.log(paddedString)
   return paddedString.slice(-length)
 }
-console.log(formatWithPadding(123, "0", 5))
+// console.log(formatWithPadding(123, "0", 5))
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -296,7 +306,7 @@ function isPalindrome(string) {
     return true
   }
   const string = "bob"
-  console.log(isPalindrome(string))
+  // console.log(isPalindrome(string))
 }
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
@@ -334,7 +344,7 @@ function hammingDistance(str1 = "", str2 = "") {
   }
   return distance
 }
-console.log(hammingDistance(str1, str2))
+// console.log(hammingDistance(str1, str2))
 /*-----------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -364,7 +374,7 @@ function mumble(string) {
 
   return newString.join("-")
 }
-console.log(mumble("abc"))
+// console.log(mumble("abc"))
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 
