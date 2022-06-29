@@ -354,7 +354,17 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
-function mumble(string) {}
+function mumble(string) {
+  let characters = string.split(""),
+    newString = []
+
+  for (let i = 0; i < characters.length; i++) {
+    newString.push(characters[i] + Array(i + 1).join(characters[i]))
+  }
+
+  return newString.join("-")
+}
+console.log(mumble("abc"))
 /*-----------------------------------------------------------------
 Challenge: 14-fromPairs
 

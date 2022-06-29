@@ -1,16 +1,11 @@
-function hammingDistance(str1 = "", str2 = "") {
-  if (str1.length !== str2.length) {
-    return 0
-  }
-  let distance = 0
-  for (i = 0; i < str1.length; i += 1) {
-    if (str1[i] !== str2[i]) {
-      distance += 1
-    }
-  }
-  return distance
-}
-console.log(hammingDistance(str1, str2))
+function mumble(string) {
+  let characters = string.split(""),
+    newString = []
 
-const str1 = "!!!!"
-const str2 = "****"
+  for (let i = 0; i < characters.length; i++) {
+    newString.push(characters[i] + Array(i + 1).join(characters[i]))
+  }
+
+  return newString.join("-")
+}
+console.log(mumble("abc"))
