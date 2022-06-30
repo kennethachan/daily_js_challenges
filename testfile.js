@@ -1,9 +1,12 @@
-const obj1 = { a: 1, b: 2, c: 3 }
-const obj2 = { d: 4 }
-
-function mergeObjects(obj1, obj2) {
-  const obj = Object.assign({}, obj1, obj2)
-  return obj
+function findHighestPriced(arr) {
+  let highestPrice = 0
+  let result = ""
+  arr.forEach(function (product) {
+    if (item.price > highestPrice) {
+      highestPrice = item.price
+      result = product
+    }
+  })
+  return resultObj
 }
-
-console.log(mergeObjects(obj1, obj2))
+console.log(findHighestPriced)
