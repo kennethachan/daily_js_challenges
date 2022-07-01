@@ -1,12 +1,6 @@
-function findHighestPriced(arr) {
-  let highestPrice = 0
-  let result = ""
-  arr.forEach(function (product) {
-    if (item.price > highestPrice) {
-      highestPrice = item.price
-      result = product
-    }
+mapArray = [1, 2, 3]
+const newArray = (array) =>
+  array.map((mapArray) => {
+    return mapArray * 2
   })
-  return resultObj
-}
-console.log(findHighestPriced)
+console.log(newArray(mapArray))
