@@ -731,7 +731,16 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-function getNumForIP(bits) {}
+let ip = "192.156.99.15"
+
+function getNumForIP(ip) {
+  let chunks = ip.split(".").reverse()
+  let sum = 0
+  chunks.forEach(function (chunk, i) {
+    sum += parseInt(chunk) * 256 ** i
+  })
+  return sum
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 

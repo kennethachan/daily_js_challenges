@@ -1,8 +1,10 @@
-function isPrime(n) {
-  if (n < 2 || !Number.isInteger(n)) return false
-  for (let i = 2; i <= n / 2; i++) {
-    if (Number.isInteger(n / i)) return false
-  }
-  console.log(n)
-  return true
+let ip = "192.156.99.15"
+
+function getNumForIP(ip) {
+  let chunks = ip.split(".").reverse()
+  let sum = 0
+  chunks.forEach(function (chunk, i) {
+    sum += parseInt(chunk) * 256 ** i
+  })
+  return sum
 }
