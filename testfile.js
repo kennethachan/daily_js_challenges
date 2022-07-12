@@ -1,5 +1,6 @@
-function toCamelCase(string) {
-  return string.replace(/[_-]\w/g, function (match) {
-    return match.charAt(1).toUpperCase()
-  })
+function countTheBits(n) {
+  return n
+    .toString(2)
+    .split("")
+    .filter((bit) => bit === "1").length
 }
