@@ -1,10 +1,5 @@
-let ip = "192.156.99.15"
-
-function getNumForIP(ip) {
-  let chunks = ip.split(".").reverse()
-  let sum = 0
-  chunks.forEach(function (chunk, i) {
-    sum += parseInt(chunk) * 256 ** i
+function toCamelCase(string) {
+  return string.replace(/[_-]\w/g, function (match) {
+    return match.charAt(1).toUpperCase()
   })
-  return sum
 }
