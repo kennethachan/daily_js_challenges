@@ -1,7 +1,10 @@
-function intersection(arr1, arr2) {
-  const unique = new Set(arr1)
-  console.log([...unique])
-  return [...unique].filter((item) => arr2.indexOf(item) !== -1)
+const string = "bob"
+function isPalindrome(string) {
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] !== string[string.length - 1 - i]) {
+      return false
+    }
+  }
+  return true
 }
-
-intersection([4, 9, 5], [9, 4, 9, 8, 4])
+console.log(isPalindrome(string))

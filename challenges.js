@@ -83,7 +83,7 @@ sumNumbers([]) //=> 0
 function sumNumbers(nums) {
   let sum = 0
   for (let i = 0; i < nums.length; i++) {
-    sum = nums[i] + nums
+    sum += nums[i]
   }
   return sum
 }
@@ -230,20 +230,19 @@ charCount('hello') //=> { h: 1, e: 1, l: 2, o: 1 }
 charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i: 2, s: 2, f: 1, n: 1, t: 2, c: 1, '!': 1 }
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
-function charCount(string) {
-  let letterCount = 1
 
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === string[i + 1]) {
-      letterCount++
+function charCount(str) {
+  let result = {}
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i)
+    if (result[char]) {
+      result[char]++
     } else {
-      // console.log(string[i], letterCount)
-      letterCount = 1
+      result[char] = 1
     }
   }
+  return result
 }
-charCount("hello")
-charCount("Today is fantastic!")
 /*-----------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -266,16 +265,12 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 function formatWithPadding(int, char, length) {
-  let string = ""
-  for (let i = 0; i < length; i++) {
-    string = string + char
-    // console.log(string)
+  let result = int.toFixed(0)
+  while (result.length < length) {
+    result = char + result
   }
-  const paddedString = string + int
-  // console.log(paddedString)
-  return paddedString.slice(-length)
+  return result
 }
-// console.log(formatWithPadding(123, "0", 5))
 /*-----------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -296,17 +291,23 @@ isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
+// const string = "bob"
+// function isPalindrome(string) {
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] !== string[string.length - 1 - i]) {
+//       return false
+//     }
+//   }
+//   return true
+// }
+// // console.log(isPalindrome(string))
 function isPalindrome(string) {
-  function isPalindrome(string) {
-    for (let i = 0; i < string.length; i++) {
-      if (string[i] !== string[string.length - 1 - i]) {
-        return false
-      }
-    }
-    return true
+  string = string.toLowerCase()
+  while (string.includes(" ")) string = string.replace(" ", "")
+  for (let i = 0; i < Math.floor(string.length / 2); i++) {
+    if (string.charAt(i) !== string.charAt(string.length - i - 1)) return false
   }
-  const string = "bob"
-  // console.log(isPalindrome(string))
+  return true
 }
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
@@ -334,7 +335,7 @@ const str2 = "****"
 
 function hammingDistance(str1 = "", str2 = "") {
   if (str1.length !== str2.length) {
-    return 0
+    return NaN
   }
   let distance = 0
   for (i = 0; i < str1.length; i += 1) {
@@ -393,7 +394,7 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 -----------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 function fromPairs(arr) {
-  let objectTotal = []
+  let objectTotal = {}
   arr.forEach(function (newArray) {
     objectTotal[newArray[0]] = newArray[1]
   })
@@ -424,12 +425,15 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4});  //=> {a: 1, b: 2, c: 3, d: 4}
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c: 3, d: 44}
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
-const obj1 = { a: 1, b: 2, c: 3 }
-const obj2 = { d: 4 }
 
-function mergeObjects(obj1, obj2) {
-  const obj = Object.assign({}, obj1, obj2)
-  return obj
+function mergeObjects(...objects) {
+  let finalObj = objects[0]
+  for (obj of objects) {
+    for (const [key, value] of Object.entries(obj)) {
+      finalObj[key] = value
+    }
+  }
+  return finalObj
 }
 
 // console.log(mergeObjects(obj1, obj2))
@@ -505,11 +509,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 -----------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
 
-const newArray = (array) =>
-  array.map((mapArray) => {
-    return mapArray * 2
-  })
-// console.log(newArray(mapArray))
+const mapArray = (arr, fn) => {
+  let mappedArray = []
+  for (i = 0; i < arr.length; i++) {
+    mappedArray.push(fn(arr[i], i))
+  }
+  return mappedArray
+}
 /*-----------------------------------------------------------------
 Challenge: 18-reduceArray
 
@@ -607,8 +613,8 @@ isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
 function isPrime(n) {
-  if (n < 200 || !Number.isInteger(n)) return false
-  for (let i = 200; i <= n / 200; i++) {
+  if (n < 2 || !Number.isInteger(n)) return false
+  for (let i = 2; i <= n / 2; i++) {
     if (Number.isInteger(n / i)) return false
   }
   return true
@@ -636,7 +642,13 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(n) {}
+function primeFactors(n) {
+  if (int < 2 || Math.ceil(int) !== int) return false
+  for (i = 2; i < int - 1; i++) {
+    if (int % i === 0) return false
+  }
+  return true
+}
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
 
