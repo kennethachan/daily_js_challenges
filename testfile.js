@@ -1,10 +1,14 @@
-const string = "bob"
-function isPalindrome(string) {
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] !== string[string.length - 1 - i]) {
-      return false
+function charCount(str) {
+  let result = {}
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charAt(i)
+    if (result[char]) {
+      result[char]++
+    } else {
+      result[char] = 1
     }
   }
-  return true
+  return result
 }
-console.log(isPalindrome(string))
+
+console.log(charCount("testing"))
